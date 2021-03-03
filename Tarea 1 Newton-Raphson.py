@@ -20,17 +20,27 @@ def newtonRaphson(f, t, x0, maxIter=100, minTol=1e-6, printResults=False): #f is
     return xi1
 
 #Test
-a = 0.01
-v0 = 0
-di = -5
-df = 0
+if(__name__ == "__main__"):
+    
+    #Problem parameters
+    a = 0.01
+    v0 = 0
+    di = -5
+    df = 0
+    
+    
+    #Newton-Raphson method parameters
+    x0 = 1
+    maxIter = 50
+    minTol = 0.1
 
-t = sympy.symbols('t')
+    #Problem equation and definition
+    t = sympy.symbols('t')
+    f = (a/2)*t**2+v0*t+di-df
 
-f = (a/2)*t**2+v0*t+di-df
-
-estimatedValue = newtonRaphson(f,t,1,50,0.01,False)
-print("Resultado estimado: {:.5f}".format(estimatedValue))
-realValue = (-v0 + (v0**2-2*a*(di-df))**0.5)/a
-print("Resultado real: {:.5f}".format(realValue))
-print("Error porcentual final: {:.5f}%".format(abs(100*(realValue-estimatedValue)/realValue)))
+    #Calculations and results
+    estimatedValue = newtonRaphson(f,t,x0,maxIter,minTol,True)
+    print("Resultado estimado: {:.5f}".format(estimatedValue))
+    realValue = (-v0 + (v0**2-2*a*(di-df))**0.5)/a
+    print("Resultado real: {:.5f}".format(realValue))
+    print("Error porcentual final: {:.5f}%".format(abs(100*(realValue-estimatedValue)/realValue)))
