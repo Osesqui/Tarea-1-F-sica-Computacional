@@ -34,7 +34,7 @@ def f(t):
 Se inicializa el valor para la sumatoria, en este caso ya se conocen los
 pesos para la función evaluada en los extermos del intervalo
 '''
-sumatoria=0.0
+
 sumatoria= (h/3)*(f(a)+f(b))
 
 '''
@@ -48,8 +48,10 @@ for i in range(1,n):
         sumatoria=sumatoria+(2/3)*h*f(t_i) #Si es par se multplica por 2/3
     else:
         sumatoria=sumatoria+(4/3)*h*f(t_i) ##Si es impar se multplica por 4/3
-print(h)      
-print("El desplazamiento es = ",sumatoria)
+valorReal=75.0
+
+print("El desplazamiento es  ",sumatoria)
+print("Se tiene un error de ",abs(100*(valorReal-sumatoria)/valorReal))
 
 
         
